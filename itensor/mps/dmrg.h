@@ -267,13 +267,14 @@ DMRGWorker(MPSt<Tensor>& psi,
             } //for loop over b
 
         auto sm = sw_time.sincemark();
-        printfln("    Sweep %d CPU time = %s (Wall time = %s)",
+        if(!quiet)
+            {
+            printfln("    Sweep %d CPU time = %s (Wall time = %s)",
                   sw,showtime(sm.time),showtime(sm.wall));
-
+            }
         if(obs.checkDone(args)) break;
     
         } //for loop over sw
-    
     psi.normalize();
 
     return energy;

@@ -113,7 +113,7 @@ InputGroup(std::string filename,
            const char* c)
     : parent(0), 
       name_(groupname), 
-      quiet(false)
+      quiet(true)
     {
     infile.set_managed(new InputFile(filename));
     //std::cout << "Making input group " << name_;
@@ -127,7 +127,7 @@ InputGroup(InputFile& inf,
            const char* c)
     : parent(0), 
       name_(name), 
-      quiet(false)
+      quiet(true)
     {
     infile.set_external(&inf);
     //std::cout << "Making input group " << name_;
@@ -141,7 +141,7 @@ InputGroup(InputGroup& par,
            const char* c)
     : parent(&par), 
       name_(name),
-      quiet(false)
+      quiet(true)
     {
     infile.set_external(&(*par.infile));
     //std::cout << "Making input group " << parent->name_ << "." << name_;

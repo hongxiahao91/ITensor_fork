@@ -130,12 +130,14 @@ measure(Args const& args)
     max_te = std::max(max_te,last_spec_.truncerr());
     if(b == 1 && ha == 2) 
         {
-        if(!printeigs) println();
-        println("    Largest m during sweep ",sw," was ",(max_eigs > 1 ? max_eigs : 1));
-        max_eigs = -1;
-        println("    Largest truncation error: ",(max_te > 0 ? max_te : 0.));
-        max_te = -1;
-        printfln("    Energy after sweep %d is %.12f",sw,energy);
+        if(printeigs)
+            {
+            println("    Largest m during sweep ",sw," was ",(max_eigs > 1 ? max_eigs : 1));
+            max_eigs = -1;
+            println("    Largest truncation error: ",(max_te > 0 ? max_te : 0.));
+            max_te = -1;
+            printfln("    Energy after sweep %d is %.12f",sw,energy);
+            }
         }
 
     }
